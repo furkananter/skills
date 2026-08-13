@@ -1,29 +1,21 @@
 ---
 name: overengineer
-description: Default anti-overengineering guardrail. Automatically use whenever a task involves writing, changing, fixing, refactoring, reviewing, designing, planning, optimizing, or choosing architecture, abstractions, dependencies, tools, agents, configuration, tests, workflows, or scope in software, product, research, writing, or operations. Prefer the smallest correct solution, reject speculative complexity, preserve existing behavior, and stop when requirements are satisfied. If ponytail is also active for a coding task, ponytail controls minimization intensity while overengineer retains correctness, safety, compatibility, and explicit scope boundaries.
+description: Default anti-overengineering guardrail. Automatically use whenever a task involves writing, changing, fixing, refactoring, reviewing, designing, planning, optimizing, or choosing architecture, abstractions, dependencies, tools, agents, configuration, tests, workflows, or scope in software, product, research, writing, or operations. Prefer the smallest correct solution, reject speculative complexity, preserve existing behavior, and stop when requirements are satisfied.
 license: MIT
 metadata:
   author: furkananter
-  version: "1.1.0"
+  version: "1.1.1"
 ---
 
 # Overengineer
 
 Keep the solution as small as possible without sacrificing correctness, safety, or maintainability.
 
-## Trigger and precedence
+## Trigger
 
 Apply this skill automatically when the current task involves implementation, design, architecture, refactoring, review, optimization, dependencies, tooling, agents, configuration, tests, workflow complexity, future-proofing, or scope decisions. Do not wait for the user to mention `overengineer` explicitly.
 
 Explicit requirements are requirements, not overengineering. Do not remove or reject requested behavior merely because a smaller product could exist.
-
-If [`ponytail`](https://github.com/DietrichGebert/ponytail) is also active on a coding task:
-
-- let ponytail control how aggressively to minimize code and implementation effort,
-- keep this skill responsible for correctness, safety, compatibility, evidence, and explicit scope boundaries,
-- when they conflict, explicit user requirements and correctness/safety constraints win.
-
-Outside coding tasks, this skill applies independently.
 
 ## Core rule
 
