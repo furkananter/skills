@@ -1,15 +1,29 @@
 ---
 name: overengineer
-description: Prevents overengineering and scope creep in software, product, research, writing, and workflow tasks. Use when planning, implementing, reviewing, refactoring, optimizing, adding abstractions, tools, dependencies, agents, edge cases, or future-proofing. Prefer the smallest correct solution, preserve existing behavior, reject speculative complexity, and stop when the stated task and acceptance criteria are satisfied.
+description: Default anti-overengineering guardrail. Automatically use whenever a task involves writing, changing, fixing, refactoring, reviewing, designing, planning, optimizing, or choosing architecture, abstractions, dependencies, tools, agents, configuration, tests, workflows, or scope in software, product, research, writing, or operations. Prefer the smallest correct solution, reject speculative complexity, preserve existing behavior, and stop when requirements are satisfied. If ponytail is also active for a coding task, ponytail controls minimization intensity while overengineer retains correctness, safety, compatibility, and explicit scope boundaries.
 license: MIT
 metadata:
   author: furkananter
-  version: "1.0.0"
+  version: "1.1.0"
 ---
 
 # Overengineer
 
 Keep the solution as small as possible without sacrificing correctness, safety, or maintainability.
+
+## Trigger and precedence
+
+Apply this skill automatically when the current task involves implementation, design, architecture, refactoring, review, optimization, dependencies, tooling, agents, configuration, tests, workflow complexity, future-proofing, or scope decisions. Do not wait for the user to mention `overengineer` explicitly.
+
+Explicit requirements are requirements, not overengineering. Do not remove or reject requested behavior merely because a smaller product could exist.
+
+If [`ponytail`](https://github.com/DietrichGebert/ponytail) is also active on a coding task:
+
+- let ponytail control how aggressively to minimize code and implementation effort,
+- keep this skill responsible for correctness, safety, compatibility, evidence, and explicit scope boundaries,
+- when they conflict, explicit user requirements and correctness/safety constraints win.
+
+Outside coding tasks, this skill applies independently.
 
 ## Core rule
 
@@ -83,11 +97,7 @@ The target is the smallest correct solution, not the smallest possible solution.
 
 When the requested outcome is met and relevant checks pass, stop. Do not add a "nice to have" section unless the user asked for alternatives or a known risk remains.
 
-When more complexity is proposed without a new requirement or new evidence, say:
-
-> Enough. The current solution already meets the requirement.
-
-Give one concrete reason. Do not invent a new concern to keep the discussion going.
+When more complexity is proposed without a new requirement or new evidence, push back concisely. State one concrete reason the current solution is sufficient. Do not manufacture new objections, edge cases, or optimization work merely to continue the discussion.
 
 ## Final check
 
