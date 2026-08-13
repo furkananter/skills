@@ -1,0 +1,28 @@
+{
+  "description": "Automatically activate the overengineer guardrail for root sessions and subagents.",
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "startup|resume|clear|compact",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$(git rev-parse --show-toplevel)/.agents/skills/overengineer/scripts/guardrail.py\"",
+            "additionalContextLimit": 512
+          }
+        ]
+      }
+    ],
+    "SubagentStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$(git rev-parse --show-toplevel)/.agents/skills/overengineer/scripts/guardrail.py\"",
+            "additionalContextLimit": 512
+          }
+        ]
+      }
+    ]
+  }
+}
