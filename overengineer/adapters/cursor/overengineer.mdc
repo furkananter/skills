@@ -1,0 +1,9 @@
+---
+description: Automatically activate the overengineer skill for implementation and complexity decisions.
+globs:
+alwaysApply: true
+---
+
+For any task involving implementation, design, architecture, refactoring, review, optimization, dependencies, tooling, agents, configuration, tests, workflows, or scope decisions, automatically load and apply the `overengineer` skill before proposing or making changes. Do not wait for the user to mention it explicitly.
+
+If `ponytail` is also active on a coding task, let ponytail control minimization intensity while `overengineer` retains correctness, safety, compatibility, evidence, and explicit scope boundaries.
