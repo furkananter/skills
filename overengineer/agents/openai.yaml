@@ -1,0 +1,7 @@
+interface:
+  display_name: "Overengineer"
+  short_description: "Prevent unnecessary complexity and scope creep."
+  default_prompt: "Apply the overengineer guardrail and prefer the smallest correct solution."
+
+policy:
+  allow_implicit_invocation: true
