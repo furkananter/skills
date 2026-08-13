@@ -36,10 +36,6 @@ The skill is written for implicit invocation, so normal use does not require men
 
 See [`overengineer/references/activation.md`](./overengineer/references/activation.md) for deterministic activation setup.
 
-### Ponytail compatibility
-
-If [`ponytail`](https://github.com/DietrichGebert/ponytail) is active on a coding task, ponytail controls how aggressively to minimize the implementation. `overengineer` remains responsible for correctness, safety, compatibility, evidence, and explicit scope boundaries.
-
 ### Structure
 
 ```text
