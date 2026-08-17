@@ -1,0 +1,7 @@
+interface:
+  display_name: "Test Guard"
+  short_description: "Keep tests and coverage from being forgotten."
+  default_prompt: "Apply test-guard to this code change and verify test and coverage impact before completion."
+
+policy:
+  allow_implicit_invocation: true
