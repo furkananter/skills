@@ -1,0 +1,20 @@
+---
+description: Always enforce test and coverage discipline for code changes.
+globs:
+alwaysApply: true
+---
+
+For every task that changes executable code or observable behavior, apply the `test-guard` skill before considering the task complete.
+
+Always verify:
+
+- what behavior changed or could regress,
+- whether existing tests cover it,
+- whether focused tests must be added or updated,
+- whether coverage impact was considered,
+- what verification actually ran.
+
+Do not add meaningless tests only to increase coverage.
+Do not introduce a new test framework or coverage tool without a concrete requirement.
+Respect repository and user instructions about whether the agent may run tests or scripts.
+If verification cannot be run, state that clearly and provide the exact targeted command the user should run.
