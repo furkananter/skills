@@ -1,59 +1,67 @@
 # Furkan Anter's Agent Skills
 
-Open Agent Skills focused on practical software work.
+Small, practical guardrails for coding agents.
 
-## overengineer
+## Skills
 
-A default anti-overengineering guardrail. It pushes agents toward the smallest correct solution without trading away correctness, safety, compatibility, or explicit requirements.
+### overengineer
 
-### Install
+Prevents unnecessary architecture, abstractions, dependencies, refactors, and scope creep. Pushes toward the smallest correct solution.
+
+### test-guard
+
+Prevents code changes from being completed while relevant tests or coverage impact are forgotten. Requires meaningful test consideration without chasing coverage for its own sake.
+
+## Install
 
 Cursor + Codex:
 
 ```sh
-npx skills add furkananter/skills --skill overengineer -a cursor -a codex
+npx skills add furkananter/skills --skill overengineer --skill test-guard -a cursor -a codex
 ```
 
-Claude Code:
+Only `test-guard`:
 
 ```sh
-npx skills add furkananter/skills --skill overengineer -a claude-code
+npx skills add furkananter/skills --skill test-guard -a cursor -a codex
 ```
 
-All three:
+## Cursor always-on rules
+
+Cursor project rules live in `.cursor/rules`. Both skills include an `alwaysApply: true` adapter, but the Skills CLI does not copy adapters into `.cursor/rules` automatically.
+
+After installing the skills for Cursor:
 
 ```sh
-npx skills add furkananter/skills --skill overengineer -a cursor -a codex -a claude-code
+sh .agents/skills/overengineer/scripts/install-cursor-rule.sh
+sh .agents/skills/test-guard/scripts/install-cursor-rule.sh
 ```
 
-### Automatic triggering
+The resulting rules are:
 
-The skill is written for implicit invocation, so normal use does not require mentioning `overengineer` manually.
+```text
+.cursor/rules/overengineer.mdc
+.cursor/rules/test-guard.mdc
+```
 
-- **Cursor:** Agent Skill auto-selection from the skill description. An optional Always rule adapter is included for stronger activation.
-- **Codex:** implicit invocation is explicitly enabled through `agents/openai.yaml`. Optional `SessionStart` and `SubagentStart` hook configuration is included.
-- **Claude Code:** model invocation is enabled by default. Optional `SessionStart` and `SubagentStart` hook configuration is included.
+## Codex
 
-See [`overengineer/references/activation.md`](./overengineer/references/activation.md) for deterministic activation setup.
+Both skills include `agents/openai.yaml` with implicit invocation enabled.
 
-### Structure
+## Repository structure
 
 ```text
 skills/
-├── README.md
-├── LICENSE
-└── overengineer/
+├── overengineer/
+│   ├── SKILL.md
+│   ├── agents/
+│   ├── adapters/
+│   └── scripts/
+└── test-guard/
     ├── SKILL.md
     ├── agents/
-    │   └── openai.yaml
     ├── adapters/
-    │   ├── claude/
-    │   ├── codex/
-    │   └── cursor/
-    ├── references/
-    │   └── activation.md
     └── scripts/
-        └── guardrail.py
 ```
 
 Follows the open [Agent Skills specification](https://agentskills.io/specification).
